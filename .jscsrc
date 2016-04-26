@@ -1,0 +1,40 @@
+{
+  "esnext": true,
+  "preset": "airbnb",
+  "fileExtensions": [".js", "jscs"],
+
+  "requireSemicolons": false,
+  "requireParenthesesAroundIIFE": true,
+  "maximumLineLength": 100,
+  "validateLineBreaks": "LF",
+  "validateIndentation": 2,
+  "disallowTrailingComma": true,
+  "disallowUnusedParams": true,
+  "disallowMultipleVarDecl": false,
+
+  "requireSpacesInAnonymousFunctionExpression": false,
+  "requireTrailingComma": false,
+
+  "disallowSpacesInsideObjectBrackets": null,
+  "disallowImplicitTypeConversion": ["string"],
+
+  "safeContextKeyword": "_this",
+
+  "jsDoc": {
+    "checkAnnotations": "closurecompiler",
+    "checkParamNames": true,
+    "requireParamTypes": true,
+    "checkRedundantParams": true,
+    "checkReturnTypes": true,
+    "checkRedundantReturns": true,
+    "requireReturnTypes": true,
+    "checkTypes": "capitalizedNativeCase",
+    "checkRedundantAccess": true,
+    "requireNewlineAfterDescription": true
+  },
+
+  "excludeFiles": [
+    "test/data/**",
+    "patterns/*"
+  ]
+}

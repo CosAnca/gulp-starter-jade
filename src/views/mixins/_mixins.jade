@@ -1,0 +1,13 @@
+//- This is where you define your Jade mixins
+
+//- Sprite mixin to generate svg includes
+mixin sprite(icon)
+	span.sprite(class=icon)
+		svg(viewBox="0 0 1 1")
+			use(xlink:href='img/sprites.svg##{icon}')
+
+//- Hero
+mixin hero(background, title)
+	.hero
+		.hero__bg(style="background-image: url('#{background}')")
+		h2.hero__title=title

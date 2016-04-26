@@ -1,0 +1,23 @@
+include ../mixins/_mixins
+
+- var fonts = ['Georgia', 'Georgia-Italic', 'AvenirNext-Regular', 'AvenirNext-Medium', 'EamesCenturyModern-Regular']
+
+// Typography
++sgBlock('Typography', 'General typography used across the project')
+  h4 Headings
+  .sg-heading-block
+    p.sg-heading-font Eames Century Modern Regular
+    h2.sg-hero-title Exclusive destination fishing in the wilds of Iceland
+    p.sg-usage Used on hero
+  .sg-heading-block
+    p.sg-heading-font Georgia
+    h2.sg-intro-title Discover the world's most exclusive salmon fishing
+    p.sg-usage Used on intro modules as title
+  .sg-heading-block
+    p.sg-heading-font Avenir Next Medium
+    h1 Heading 1 #[span.sg-heading-font]
+    h2 Heading 2 #[span.sg-heading-font]
+    h3 Heading 3 #[span.sg-heading-font]
+    h4 Heading 4 #[span.sg-heading-font]
+    h5 Heading 5 #[span.sg-heading-font]
+    h6 Heading 6 #[span.sg-heading-font]

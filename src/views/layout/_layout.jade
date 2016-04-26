@@ -1,0 +1,25 @@
+doctype html
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+html(lang="en")
+	<!--<![endif]-->
+	head
+		title= siteTitle
+		include ../includes/head/_meta
+		include ../includes/head/_favicons
+		// Stylesheet links
+		block styles
+			link(rel="stylesheet", href="style/style.css")
+	body
+		//- To use your defined Jade mixins include the mixins file below
+		include ../mixins/_mixins
+		.site
+			//- This is where you include your header
+			include _header
+			//- This is where your block content starts
+			block content
+			//- This is where you include your footer
+			include _footer
+	//- This is where you include your scripts
+	block scripts
+		include ../includes/scripts/_scripts

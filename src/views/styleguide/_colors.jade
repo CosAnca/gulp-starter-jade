@@ -1,0 +1,11 @@
+include ../mixins/_mixins
+
+- var colors = {'light-beige': '#F9F8F6', 'gray': '#9B9B9B', 'dark-gray': '#4A4A4A', 'gold': '#B59045'}
+// Colors
++sgBlock('Colours', 'Colours used across the project')
+  each val, key in colors
+    .sg-color-block
+      .sg-color(class=key)
+      .sg-color-text
+        p.sg-color-name $#{key}
+        p.sg-color-hex= val

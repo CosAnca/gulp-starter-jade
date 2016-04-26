@@ -1,0 +1,4 @@
+$fonts: Georgia
+
+@each $font in $fonts
+  +font-face('#{$font}', '../fonts/#{$font}', normal, normal)

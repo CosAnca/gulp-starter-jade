@@ -1,0 +1,81 @@
+// Visual grid
+=grid-column-gradient($values...)
+  background-image: -webkit-linear-gradient(left, $values)
+  background-image: -moz-linear-gradient(left, $values)
+  background-image: -ms-linear-gradient(left, $values)
+  background-image: -o-linear-gradient(left, $values)
+  background-image: unquote("linear-gradient(to left, #{$values})")
+
+@if $visual-grid == true or $visual-grid == yes
+  body:before
+    +grid-column-gradient(gradient-stops($grid-columns))
+    content: ""
+    display: inline-block
+    height: 100%
+    left: 0
+    margin: 0 auto
+    max-width: $max-width
+    opacity: $visual-grid-opacity
+    pointer-events: none
+    position: fixed
+    right: 0
+    // width: 100%
+    width: percentage(1194/1280)
+    @if $visual-grid-index == back
+      z-index: -1
+    @else if $visual-grid-index == front
+      z-index: 9999
+    @each $breakpoint in $visual-grid-breakpoints
+      @if $breakpoint
+        +media($breakpoint)
+          +grid-column-gradient(gradient-stops($grid-columns))
+
+// Neat grid omega reset
+=omega-reset($nth, $context: null)
+  @if $context == null
+    &:nth-child(#{$nth})
+      margin-right: flex-gutter()
+  @else
+    &:nth-child(#{$nth})
+      margin-right: flex-gutter($context)
+  &:nth-child(#{$nth}+1)
+    clear: none
+
+// Font smoothing
+=font-smoothing($value: antialiased)
+  @if $value == antialiased
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+  @else
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto
+
+// Span blocks
+=span-block($span: $columns of $container-columns)
+  $columns: nth($span, 1)
+  $container-columns: container-span($span)
+
+  display: inline-block
+  margin-right: flex-gutter($container-columns)
+  width: flex-grid($columns, $container-columns)
+
+// Centerer
+=centerer($horizontal: true, $vertical: true)
+  position: absolute
+  @if $horizontal and $vertical
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  @else if $horizontal
+    left: 50%
+    transform: translate(-50%, 0)
+  @else if $vertical
+    top: 50%
+    transform: translate(0, -50%)
+
+// Overlay
+=overlay($background)
+  &::before
+    content: ''
+    +position(absolute, 0 0 0 0)
+    background-color: $background

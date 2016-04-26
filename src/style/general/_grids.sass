@@ -1,0 +1,46 @@
+$screen: 1280
+$layouts: (medium 992) (small 788)
+
+.container
+  width: percentage(1194/1280)
+  +outer-container()
+
+  +media($large-screen)
+    @each $layout in $layouts
+      &--#{nth($layout, 1)}
+        width: percentage(nth($layout, 2) / $screen)
+
+.row
+  +row()
+
+@for $col from 1 through 6
+  .col-m-#{$col}
+    +media($medium-screen)
+      +span-columns($col of 6)
+
+  .col-m-shift-#{$col}
+    +media($medium-screen)
+      +shift($col)
+
+@for $col from 1 through 10
+  .col-l-#{$col}
+    +media($large-screen)
+      +span-columns($col)
+
+  .col-l-shift-#{$col}
+    +media($large-screen)
+      +shift($col)
+
+.col-m-3
+  +media($medium-screen)
+    +omega(2n)
+
+.col-l-3
+  +media($large-screen)
+    +omega-reset(2n)
+    +omega(4n)
+
+.col-l-4
+  +media($large-screen)
+    +omega-reset(2n)
+    +omega(3n)
